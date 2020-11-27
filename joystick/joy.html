@@ -1,0 +1,105 @@
+<!-- Precy Jane Roxas -->
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Joy</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Example page of use pure Javascript JoyStick">
+    <!-- Added the Bootstrap CDN -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="./browserMqtt.js"></script>
+    <script src="./joy.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-family: monospace;
+        }
+        
+        .columnLateral {
+            width: 15%;
+            min-width: 300px;
+        }
+        
+        .row {
+            padding: 10px;
+        }
+        
+        div.form-group {
+            border: 1px solid black;
+            /* padding: 20px; */
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-group container">
+        <div class="row">
+            <h1>Joy Stick</h1>
+        </div>
+    </div>
+    <h4 id='status-header' style="text-align: center;">Connecting to broker...</h4>
+    <!-- Example of two JoyStick integrated in the page structure -->
+    <div class="form-group container">
+        <div class="row">
+            <center>
+                <div class="columnLateral">
+                    <div id="joy1Div" style="width:200px;height:200px;"></div>
+                    Position X:<input id="joy1PosizioneX" type="text" style="margin: 5px;" /><br /> Position Y:<input id="joy1PosizioneY" type="text" style="margin: 5px;" /><br /> Direction:
+                    <input id="joy1Direzione" type="text" style="margin: 5px;" /><br />
+
+                </div>
+            </center>
+
+
+            <script type="text/javascript">
+                // connect to the micobit
+                var broker = 'wss://mqtt.eclipse.org:443/mqtt';
+                var client = mqtt.connect(broker);
+                client.on('connect', function() {
+                    status_header.innerHTML = 'Connected to ' + broker;
+                })
+
+                // Create JoyStick object into the DIV 'joy1Div'
+                var status_header = document.getElementById('status-header')
+                var Joy1 = new JoyStick('joy1Div');
+
+                var joy1IinputPosX = document.getElementById("joy1PosizioneX");
+                var joy1InputPosY = document.getElementById("joy1PosizioneY");
+                var joy1Direzione = document.getElementById("joy1Direzione");
+
+                setInterval(function() {
+                    joy1IinputPosX.value = Joy1.GetPosX();
+                }, 50);
+                setInterval(function() {
+                    joy1InputPosY.value = Joy1.GetPosY();
+                }, 50);
+                setInterval(function() {
+                    joy1Direzione.value = Joy1.GetDir();
+
+                    client.publish('joy', Joy1.GetDir())
+                    console.log(Joy1.GetDir());
+                }, 1000);
+            </script>
+        </div>
+    </div>
+</body>
+
+
+</html>

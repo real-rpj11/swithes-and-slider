@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clue_Sliders</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="sliders.css">
+
+
+
+
+</head>
+
+<body>
+    <h1>Adafruit CLUE Sliders</h1>
+    <h4 id="status-header">Connecting...</h4>
+    <!-- Accelerator -->
+    <div class="slidecontainer container">
+        <div class="row">
+            <p class="h3">Acceleration</p>
+            <div class="col-xs-2">
+                <p>Acceleration - X: <span id="accelerationX"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="-1023" max="1023" value="0" class="slider" id="acceleratorX">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <p>Acceleration - Y: <span id="accelerationY"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="-1023" max="1023" value="0" class="slider" id="acceleratorY">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <p>Acceleration - Z: <span id="accelerationZ"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="-1023" max="1023" value="0" class="slider" id="acceleratorZ">
+            </div>
+        </div>
+    </div>
+
+    <!-- Gyroscope -->
+    <div class="slidecontainer container">
+        <div class="row">
+            <p class="h3">Gyroscope</p>
+            <div class="col-xs-2">
+                <p>Gyroscope - X: <span id="gyroscopeX"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="-1000" max="1000" value="0" class="slider" id="gyroX">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <p>Gyroscope - Y: <span id="gyroscopeY"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="-1000" max="1000" value="0" class="slider" id="gyroY">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <p>Gyroscope - Z: <span id="gyroscopeZ"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="-1000" max="1000" value="0" class="slider" id="gyroZ">
+            </div>
+        </div>
+    </div>
+
+    <!-- Magnetometer -->
+    <div class="slidecontainer container">
+        <div class="row">
+            <p class="h3">Magnetometer</p>
+            <div class="col-xs-2">
+                <p>Magnetometer - X: <span id="magnetometerX"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="-1000" max="1000" value="0" class="slider" id="magneticX">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <p>Magnetometer - Y: <span id="magnetometerY"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="-1000" max="1000" value="0" class="slider" id="magneticY">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <p>Magnetometer - Z: <span id="magnetometerZ"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="-1000" max="1000" value="0" class="slider" id="magneticZ">
+            </div>
+        </div>
+    </div>
+
+    <!-- Pressure -->
+    <div class="slidecontainer container">
+        <div class="row">
+            <p class="h3">Pressure</p>
+            <div class="col-xs-2">
+                <p>Pressure: <span id="pressure"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="800" max="1100" value="1013" class="slider" id="press">
+            </div>
+        </div>
+    </div>
+
+    <!-- Temperature -->
+    <div class="slidecontainer container">
+        <div class="row">
+            <p class="h3">Temperature</p>
+            <div class="col-xs-2">
+                <p>Temperature: <span id="temperature"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="-55" max="125" value="0" class="slider" id="temp">
+            </div>
+        </div>
+    </div>
+
+    <!-- Humidity -->
+    <div class="slidecontainer container">
+        <div class="row">
+            <p class="h3">Humidity</p>
+            <div class="col-xs-2">
+                <p>Humidity: <span id="humidity"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="0" max="100" value="0" class="slider" id="humid">
+            </div>
+        </div>
+    </div>
+
+    <!-- Proximity -->
+    <div class="slidecontainer container">
+        <div class="row">
+            <p class="h3">Proximity</p>
+            <div class="col-xs-2">
+                <p>Proximity: <span id="proximity"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="0" max="255" value="0" class="slider" id="proxim">
+            </div>
+        </div>
+    </div>
+
+    <!-- Color -->
+    <div class="slidecontainer container">
+        <div class="row">
+            <p class="h3">Color</p>
+            <div class="col-xs-2">
+                <p>Color - R: <span id="colorR"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="0" max="65535" value="0" class="slider" id="colR">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <p>Color - G: <span id="colorG"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="0" max="65535" value="0" class="slider" id="colG">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <p>Color - B: <span id="colorB"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="0" max="65535" value="0" class="slider" id="colB">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <p>Color - C: <span id="colorC"></span></p>
+            </div>
+            <div class="col-xs-10">
+                <input type="range" min="0" max="65535" value="0" class="slider" id="colC">
+            </div>
+        </div>
+    </div>
+    <script src="./browserMqtt.js"></script>
+    <script src="sliders.js"></script>
+</body>
+
+</html>
